@@ -4,8 +4,10 @@ const db = require("./db")
 const person = require("./models/person")
 const menuitem = require("./models/menuitem")
 const bodyparser = require("body-parser")
-
+require("dotenv").config()
 app.use(express.json())
+
+const PORT = process.env.PORT
 
 app.get('/', (req, res) => {
   res.send('welcome to the our hotel')
@@ -19,4 +21,5 @@ app.use("/person",personroutes)
 app.use("/menu",menuitemroutes)
 
 
-app.listen(3000, () => console.log(`Example app listening on port 3000`))
+
+app.listen(PORT,() => console.log(`Example app listening on port 3000`))
